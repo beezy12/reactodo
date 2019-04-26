@@ -1,0 +1,10 @@
+// transform-class-properties  -> lets you do away with class constructors and having to bind functions
+{
+  "presets": [
+    "env",
+    "react"
+  ],
+  "plugins": [
+    "transform-class-properties"
+  ]
+}
