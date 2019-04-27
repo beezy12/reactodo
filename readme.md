@@ -23,12 +23,12 @@ npm install
 
 
 
-*[x] add todo form
-*[x] show todo list
-*[] add delete functionality
-*[] add 'mark as done' functionality
-*[] show line through 'marked as done' tasks
-*[]
-*[]
-*[]
-*[]
+* [x] add todo form
+* [x] show todo list
+* [] add delete functionality
+* [] add 'mark as done' functionality
+* [] show line through 'marked as done' tasks
+* []
+* []
+* []
+* []
