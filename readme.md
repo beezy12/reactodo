@@ -12,7 +12,7 @@ npm install
 ## Built With
 
 * [React.js](https://reactjs.org)
-* [Babel])(https://babeljs.io)
+* [Babel](https://babeljs.io)
 * [Webpack](https://webpack.js.org)
 * [Sass](https://sass-lang.com)
  
