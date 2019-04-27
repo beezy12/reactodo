@@ -1,36 +1,34 @@
 import React, { Component } from 'react';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      todos: [{
-        todo: '',
-        done: false
-      }],
-      words: ''
-    };
 
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  state = {
+    newTodo: '',
+    todoArray: []
+  };
+  
 
- handleSubmit = (event) => {
-   console.log(this.state.value)
+ addTodo = (event) => {
    event.preventDefault()
+
+   this.setState({ 
+     todoArray: [...this.state.todoArray, {
+       title: this.state.newTodo,
+       done: false
+     }]
+   });
  }
 
-  handleChange(event) {
-    this.setState({ words: event.target.value });
+  newTodoChange = (event) => {
+    this.setState({ newTodo: event.target.value });
   }
 
   render() {
-    console.log(this.state.words)
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={(event) => this.addTodo(event)}>
           <label>
-            <input type="text" value={this.state.words} onChange={this.handleChange} />
+            <input type="text" value={this.state.todoArray.title} onChange={(event) => this.newTodoChange(event)} />
           </label>
           <button>add todo</button>
         </form>
