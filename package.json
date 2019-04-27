@@ -2,7 +2,9 @@
   "name": "reactodo",
   "version": "0.1.0",
   "private": true,
+  "main": "index.js",
   "scripts": {
+    "start": "live-server public/",
     "dev": "webpack-dev-server"
   },
   "dependencies": {
