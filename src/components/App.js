@@ -4,31 +4,38 @@ class App extends Component {
 
   state = {
     newTodo: '',
-    todoArray: []
+    todoArray: [{
+      title: 'placeholder',
+      done: false
+    }, {
+      title: 'number two',
+      done: false
+    }]
   };
   
 
- addTodo = (event) => {
-   event.preventDefault()
+  addTodo = (event) => {
+    event.preventDefault()
+    this.setState({
+      todoArray: [...this.state.todoArray, {
+        title: this.state.newTodo.trim(),
+        done: false
+      }],
+      newTodo: '' // clears form
+    });
+  }
 
-   this.setState({ 
-     todoArray: [...this.state.todoArray, {
-       title: this.state.newTodo.trim(),
-       done: false
-     }],
-     newTodo: '' // clears form
-   });
- }
+  markDone = (index) => {
+    
+  }
 
   newTodoChange = (event) => {
     this.setState({ newTodo: event.target.value });
   }
 
   removeTodo = (taskToDelete) => {
-    // console.log('to delete: ', taskToDelete)
-    const newTodoArray = [...this.state.todoArray]
-    //newTodoArray.map(task => console.log('task to filter right here', task.title))
-    this.setState({ todoArray: newTodoArray.filter(task => task.title !== taskToDelete) })
+    const todoArrayCopy = [...this.state.todoArray]
+    this.setState({ todoArray: todoArrayCopy.filter(task => task.title !== taskToDelete) });
   }
 
 
@@ -46,7 +53,7 @@ class App extends Component {
           {this.state.todoArray.map((task, index) => {
             return (
               <div>
-                <li key={index}>{task.title}</li>
+                <li onClick={() => this.markDone(index)} key={index}>{task.title}</li>
                 <button onClick={(event) => this.removeTodo(task.title)}>remove task</button>
               </div>
             )
